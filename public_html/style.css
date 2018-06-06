@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.header {
+    position : relative;
+    width: 100vw;
+    height: 600px;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.logo {
+    position : absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;      
+}
+
+.wave {
+    position : absolute;
+    top: 0;
+    left: 0;
+    padding: 0px;
+    margin-top: 300px
+}
+
+.test {
+    background-color: #1F436C;
+}
+
+#wave {
+    width: 100vw;
+
+}
+
+#logo {
+    width: 200px;
+}
+
+#duikers {
+    width: 100vw;
+}
