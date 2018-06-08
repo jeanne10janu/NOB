@@ -3,8 +3,36 @@ body {
     padding: 0;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: orange;
+    width: 300px;
+    height: 100%;
+    border-radius: 30px;
+}
 
+li {
+    position: relative;
+    height: 10.96%;  
+}
 
+li a {
+    display: block;
+    line-height: 66px;
+    text-decoration: none;
+    font-family: verdana;
+    text-align: center;
+    color: black;
+    height: 100%;
+    border-bottom: 1px solid grey;
+}
+
+li a:hover {
+    background-color: rgb(191, 160, 105);
+    color: white;
+}
 .header {
     position : relative;
     width: 100vw;
@@ -49,10 +77,26 @@ body {
     margin-left: 200px;
     margin-top: 300px;
     top: 0;
-    background-color: orange;
+    background-color: transparent;
     width: 300px;
     height: 600px;
     border-radius: 30px;
+    display: table;
+    overflow: hidden;
+}
+
+.boven {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px; 
+}
+
+.onder {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.selected {
+    background-color: rgb(243, 114, 65);
 }
 
 #wave {
