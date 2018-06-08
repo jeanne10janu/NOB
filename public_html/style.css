@@ -130,6 +130,27 @@ p {
     background-color: rgb(243, 114, 65);
 }
 
+.button {
+    background-color: white; /* Green */
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 16px;
+    border-color: orange;
+    color: orange;
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    left: 70%;
+    cursor: pointer; 
+    
+}
+
+.button:hover{
+    background-color: orange;
+    color: white;
+}
+
 #wave {
     width: 100vw;
 
