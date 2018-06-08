@@ -15,12 +15,25 @@ body {
     padding: 0;
     overflow: hidden;
 }
-
+.header:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(20, 87, 164, 0.5);
+    transition: all .3s linear;
+}
+.header:before:hover{
+    background: none;
+}
 .logo {
     position : absolute;
     top: 0;
     left: 0;
-    padding: 10px;      
+    padding: 10px; 
 }
 
 .wave {
@@ -28,11 +41,18 @@ body {
     top: 0;
     left: 0;
     padding: 0px;
-    margin-top: 300px
+    margin-top: 250px;
 }
 
-.test {
-    background-color: #1F436C;
+.menu {
+    position: absolute;
+    margin-left: 200px;
+    margin-top: 300px;
+    top: 0;
+    background-color: orange;
+    width: 300px;
+    height: 600px;
+    border-radius: 30px;
 }
 
 #wave {
