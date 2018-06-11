@@ -224,3 +224,8 @@ h2{
 #scrollStyle::-webkit-scrollbar-thumb:hover {
     background: orange;
 }
+
+#titel{
+    font-weight: bold;
+    
+}
