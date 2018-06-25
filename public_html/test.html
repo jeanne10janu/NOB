@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>NOB Enqu&ecirc;te</title>
+        <link rel="stylesheet" href="style.css">
+        
+        <!-- Voegt favicon toe, hierdoor komt het logo van NOB in de tab van de pagina -->
+        <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+        <link rel="manifest" href="favicon/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body>
+        <div class="header">
+            <img id="duikers" src="duikers.jpg" alt="Duikers" >
+            <div class="logo"><img id="logo" src="NOB-logo.png" alt="Logo" ></div>
+            <div class="wave"><img id="wave" src="white_wave.png" alt="Wave"></div>
+        </div>
+        <div class="main">
+                <div class="mainbody scroll" id="scrollStyle">
+                    <h1>Medicatie</h1>
+                    <h2>Medicatie op recept</h2>
+                    Welk van de onderstaande medicatie die op recept verkrijgbaar is gebruikt u momenteel?
+                        <form class="medicatieRecept">
+                            <div class="row">
+                                <div class="column">
+                                    <span id="titel">Medicijnen voor de longen</span><br>
+                                    <input type="checkbox" class="medicijnenRecept" value="00"> Luchtweg verwijders<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="01"> Luchtweg ontstekingsremmers<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="02"> Combinatie preparaat<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="03"> Neusspray met ontstekingsremmers<br>
+
+                                    <br><span id="titel">Medicijnen voor het hart</span><br>
+                                    <input type="checkbox" class="medicijnenRecept" value="10"> Plaspillen<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="11"> B&egrave;tablokkers<br>
+                                    <span>Medicatie om het bloed dun te houden:</span><br>
+                                    &emsp;<input type="checkbox" class="medicijnenRecept" value="12"> Aspirine<br>
+                                    &emsp;<input type="checkbox" class="medicijnenRecept" value="13"> Acenocoumarol<br>
+                                    &emsp;<input type="checkbox" class="medicijnenRecept" value="14"> Nieuwe generatie bloedverdunners<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="15"> cholestorol verlagers <br>
+                                    <input type="checkbox" class="medicijnenRecept" value="16"> calcium blokkers<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="17"> ACE remmers<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="18"> Nitrobaat spray/ tabletten<br>
+
+                                    
+                                </div>
+                                <div class="column">
+                                    
+                                    <br><span id="titel">Hormonen</span><br>
+                                    <input type="checkbox" class="medicijnenRecept" value="20"> Anticonceptie <br>
+                                    <input type="checkbox" class="medicijnenRecept" value="21"> Schildklier<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="22"> Insuline<br>
+
+                                    <br><span id="titel">Medicijnen voor maag/ darmen</span><br>
+                                    <input type="checkbox" class="medicijnenRecept" value="30"> Maagzuur remmers/ maagbeschermers<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="31"> Ontsteking remmers<br>
+
+                                    <br><span id="titel">Psychisch</span><br>
+                                    <input type="checkbox" class="medicijnenRecept" value="40"> Medicijnen voor angst en depressie<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="41"> Medicijnen voor ADHD/ ADD<br>
+
+                                    <br><span id="titel">Anders</span><br>
+                                    <input type="checkbox" class="medicijnenRecept" value="50"> Pijnstillers<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="51"> Antibiotica<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="52"> Medicijnen voor epilepsie<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="53"> Medicijnen ter voorkoming van malaria<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="54"> Medicijnen voor jicht/ reuma<br>                                    
+                                    <input type="checkbox" class="medicijnenRecept" value="55"> Medicijnen tegen suikerziekte<br>
+                                    <input type="checkbox" class="medicijnenRecept" value="56"> Anders, namelijk: <input type="text" class="medicijnenRecept">
+                                    <br>
+                                    Geboortejaar
+                                    <br>
+                                    <input type="text" id="gebJaar">
+                                    <br>
+                                    Geslacht
+                                    <br>
+                                    <input type="radio" name="gender" value="Man"> Man
+                                    <input type="radio" name="gender" value="Vrouw"> Vrouw
+                                </div>
+                            </div>
+                            <br>
+                            <input type ="button" class="button" value="VOLGENDE" onclick="btnTest()"> 
+                            <br>
+                        </form>
+                </div>
+            </div>
+        <div class="menu">
+            <ul>
+                <li><a href="inleiding.html" class="boven" >Inleiding</a></li>
+                <li class="selected"><a href="persoonsgegevens.html">Persoonsgegevens</a></li>
+                <li><a href="duikgeschiedenis.html">Duikgeschiedenis</a></li>
+                <li><a href="duikongevallen.html">Duikgeschiedenis, ongevallen</a></li>
+                <li><a href="medischActueel.html">Medische gegevens, actueel</a></li>
+                <li><a href="medischDoorgemaakt.html">Medische gegevens, doorgemaakt</a></li>
+                <li><a href="medicatieRecept.html">Medicatie op recept</a></li>
+                <li><a href="medicatieOTC.html">Medicatie zonder recept</a></li>
+                <li><a href="overzicht.html" class="onder">Overzicht</a></li>
+            </ul>
+        </div>
+        
+        <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyClZScZfTNmN_1xqOAaOnP3enR9n4-NRoM",
+            authDomain: "nobform-8b325.firebaseapp.com",
+            databaseURL: "https://nobform-8b325.firebaseio.com",
+            projectId: "nobform-8b325",
+            storageBucket: "nobform-8b325.appspot.com",
+            messagingSenderId: "1091557751917"
+          };
+          firebase.initializeApp(config);
+        </script>
+        <script src="script.js"></script>        
+    </body>
+</html>

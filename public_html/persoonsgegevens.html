@@ -21,9 +21,9 @@
             <div class="wave"><img id="wave" src="white_wave.png" alt="Wave"></div>
         </div>
         <div class="main">
-            <div class="mainbody">
+            <div class="mainbody scroll" id="scrollStyle">
             <h1>Persoonsgegevens</h1>
-            <p>Hieronder wordt u gevraagd naar uw algemene persoonsgegevens.</p>
+            <p>Hieronder wordt gevraagd naar uw algemene persoonsgegevens.</p>
             <form class="demographics">
                 Geslacht
                 <br>
@@ -48,12 +48,12 @@
                 <br>
                 Hoeveel eenheden alcohol per week drinkt u gemiddeld?
                 <br>
-                <input type="radio" class="alcohol" value="0"> 0
-                <input type="radio" class="alcohol" value="1"> 1 -5 
-                <input type="radio" class="alcohol" value="2"> 6 -10
-                <input type="radio" class="alcohol" value="3"> 10-15
-                <input type="radio" class="alcohol" value="4"> 16-20
-                <input type="radio" class="alcohol" value="5"> >20
+                <input type="radio" name="alcohol" value="0"> 0
+                <input type="radio" name="alcohol" value="1"> 1 -5 
+                <input type="radio" name="alcohol" value="2"> 6 -10
+                <input type="radio" name="alcohol" value="3"> 10-15
+                <input type="radio" name="alcohol" value="4"> 16-20
+                <input type="radio" name="alcohol" value="5"> >20
                 <br>
                 <br>
                 Hoeveel sigaretten per week rookt u gemiddeld?
@@ -66,9 +66,9 @@
                 <input type="radio" name="sigaretten" value="5"> >40
                 <br>
                 <br>
-                <input type ="button" class="button" value="VOLGENDE" onclick="window.location.href='duikgeschiedenis.html'">
+                <input type ="button" class="button" value="VOLGENDE" onclick="window.location.href='duikongevallen.html'">
                 <br>
-            </form>
+            </form>            
         </div>
         </div>
         <div class="menu">
@@ -83,7 +83,6 @@
                 <li><a href="medicatieOTC.html">Medicatie zonder recept</a></li>
                 <li><a href="overzicht.html" class="onder">Overzicht</a></li>
             </ul>
-        </div>
-            
+        </div>       
     </body>
 </html>
