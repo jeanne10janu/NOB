@@ -1,40 +1,61 @@
-//var geslacht = document.querySelector('input[name=gender]:checked').value;
-//var gebJaar = document.getElementById('gebJaar').value;
-//var gewicht = document.getElementById('gewicht').value;
-//var lengte = document.getElementById('lengte').value;
-//var alcohol = document.querySelector('input[name=alcohol]:checked').value;
-//var sigaretten = document.querySelector('input[name=sigaretten]:checked').value;
-const maxMedicijnenRecept = '56';
-const maxMedicijnenOTC = '07';
-const maxMedisch = '55';
-const maxDuikongevallen = '06';
-var gebJaarRegEx = new RegExp('19\d\d|2000$');
+const maxMedicijnenRecept = 56;
+const maxMedicijnenOTC = 07;
+const maxMedisch = 55;
+const maxDuikongevallen = 07;
+const maxJaar = 2001;
+const minJaar = 1920;
+const jaarRegEx = new RegExp('[1][9][2-9][0-9]|2000');
+const minGewicht = 30;
+const maxGewicht = 200;
+const gewichtRegEx = new RegExp('[3-9][0-9]{1,2}');
+const regexTekst = new RegExp('[a-zA-Z|\s]{1,15},?');
 
 var firebaseRef = firebase.database().ref();
+var diver = null;
+var date = null;
 
-function btnTest() {    
-    radioToDb(firebaseRef, 'geslacht');
-    textToDb(firebaseRef, 'gebJaar');
-    checkboxToDb(firebaseRef, 'medicijnenRecept', maxMedicijnenRecept);
-    //window.open('inleiding.html', '_self');
+function validateTestForm(){
+    var validForm = true;
+    date = String(new Date().getTime());
+    document.getElementById('duikerId').value = date; 
+    diver = firebaseRef.child('divers').child(date);
+    if(!checkInputNumeriek('gebJaar', jaarRegEx, minJaar, maxJaar) || !checkInputRadio('geslacht') || !checkInputCheckbox('medicijnenRecept', maxMedicijnenRecept)){
+        validForm = false;
+    }
+    else{
+        numberToDb(diver, 'gebJaar');
+        radioToDb(diver, 'geslacht');
+        checkboxToDb(diver, 'medicijnenRecept', maxMedicijnenRecept);
+    }
+    window.alert(document.getElementById('duikerId').value);
+    return validForm;
 }
 
-function validateForm(){
-    //console.log(checkInputNumeriek(minGebJaar, maxGebJaar, 'gebJaar'));
-    console.log(checkInput('gebJaar', gebJaarRegEx));
-    checkInput('gebJaar', gebJaarRegEx);
-    //return checkInputNumeriek(minGebJaar, maxGebJaar, 'gebJaar');
+function validateTest2Form(){
+    var validForm = true;    
+    window.alert(date);
+    window.alert(document.getElementById('duikerId').value);
+    date = document.getElementById('duikerId').value;
+    window.alert(date);
+    diver = firebaseRef.child('divers').child(date);
+    if(!checkInputCheckbox('duikOngevallen', maxDuikongevallen)){
+        validForm = false;
+    }
+    else{
+        checkboxToDb(diver, 'duikOngevallen', maxMedicijnenRecept);
+    }
+    return validForm;
 }
 
 function textToDb(dbRef, veldNaam){    
     var value = document.getElementById(veldNaam).value;
-    if(!checkInputNumeriek(minGebJaar, maxGebJaar, value)){
-        window.alert(veldNaam + ' moet een waarde zijn tussen ' + minGebJaar + ' en ' + maxGebJaar + '.' +
-                '\n Vul een geldige waarde in.');
-    }
-    else{
-        dbRef.child(veldNaam).set(value);  
-    }
+    checkInputTekst(value);
+    dbRef.child(veldNaam).set(value);
+}
+
+function numberToDb(dbRef, veldNaam){
+    var value = document.getElementById(veldNaam).value;
+    dbRef.child(veldNaam).set(value);
 }
 
 function radioToDb(dbRef, radioNaam){
@@ -44,7 +65,29 @@ function radioToDb(dbRef, radioNaam){
 
 function checkboxToDb(dbRef, checkboxClass, maxWaarde){
     var array = getCheckedValuesArray(checkboxClass, maxWaarde);
-    dbRef.child(checkboxClass).set([array]);
+    if(array.length === 0){
+        dbRef.child(checkboxClass).set('-');
+    }
+    else{
+        dbRef.child(checkboxClass).set(array);
+    }
+}
+
+function checkInputCheckbox(checkboxClass, maxWaarde){
+    var rightInputCheckbox = true;
+    var checkedValues = []; 
+    var inputElements = document.getElementsByClassName(checkboxClass);
+    for(var i=0; i < inputElements.length; ++i){
+          if(inputElements[i].checked){
+               checkedValues.push(inputElements[i].value);
+          }
+    }
+    if(checkedValues[checkedValues.length-1] === maxWaarde){
+        if(!checkInputTekst(checkboxClass+'Tekst')){
+            rightInputCheckbox = false;
+        }
+    }
+    return rightInputCheckbox;
 }
 
 function getCheckedValuesArray(checkboxClass, maxWaarde){
@@ -56,20 +99,64 @@ function getCheckedValuesArray(checkboxClass, maxWaarde){
           }
     }
     if(checkedValues[checkedValues.length-1] === maxWaarde){
-        var value = document.getElementById(checkboxClass+'Tekst').value;
+        var value = document.getElementById(checkboxClass+'Tekst').value.split(",");
         checkedValues.pop(checkedValues.length-1);
-        checkedValues.push(value);
+        for(var i=0; i<value.length;i++){
+            checkedValues.push(value[i]);
+        }
     }
     return checkedValues;
 }
 
-function checkInput(veldNaam, regex){
+function checkInputNumeriek(veldNaam, regex, min, max){
+    var rightInputNumeriek = true;
     var value = document.getElementById(veldNaam).value;
-    /*var correctInput = true;
-    
-    if (!regex.test(value)){
-        correctInput = false;
-        console.log(regex.test(value));
-    }*/
-    return regex.test(value);   
+    if(value === ''){
+        document.getElementById(veldNaam).style.border = 'solid 2px red';
+        document.getElementById(veldNaam+'Uitleg').innerHTML = '<br>Voer hier alstublieft een waarde in.';
+        rightInputNumeriek = false;
+    }
+    else if(!regex.test(value))
+    {
+        document.getElementById(veldNaam).style.border = 'solid 2px red';
+        document.getElementById(veldNaam+'Uitleg').innerHTML = '<br>Voer Hier alstublieft een waarde in tussen ' + min + ' en ' + max + '.';
+        rightInputNumeriek = false;
+    }
+    else{
+        document.getElementById(veldNaam).style.border = '';
+        document.getElementById(veldNaam+'Uitleg').innerHTML = '';
+    }
+    return rightInputNumeriek;
+}
+
+function checkInputTekst(veldNaam){
+    var rightInputTekst = true;
+    var value = document.getElementById(veldNaam).value;
+    if(value === ''){
+        document.getElementById(veldNaam).style.border = 'solid 2px red';
+        document.getElementById(veldNaam+'Uitleg').innerHTML = '<br>Voer hier alstublieft een waarde in.';
+        rightInputTekst = false;
+    }
+    else if(!regexTekst.test(value)){
+        document.getElementById(veldNaam).style.border = 'solid 2px red';
+        document.getElementById(veldNaam+'Uitleg').innerHTML = '<br>Voer hier alstublieft een waarde in met alleen letters uit het alfabet. <br> Indien u hier meerdere waarden in wilt vullen, scheidt deze dan met een komma.';
+        rightInputTekst = false;
+    }
+    else{
+        document.getElementById(veldNaam).style.border = '';
+        document.getElementById(veldNaam+'Uitleg').innerHTML = '';
+    }
+    return rightInputTekst;
+}
+
+function checkInputRadio(radioNaam){
+    var rightInputRadio = true;
+    if (document.querySelector('input[name=' + radioNaam + ']:checked') === null){
+        document.getElementById(radioNaam+'Uitleg').innerHTML = '<br>Vink hier alstublieft een van de opties aan.';
+        rightInputRadio = false;
+    }
+    else{
+        document.getElementById(radioNaam+'Uitleg').innerHTML = '';
+    }
+    return rightInputRadio;
 }
