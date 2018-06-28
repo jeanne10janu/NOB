@@ -22,10 +22,10 @@
         </div>
         <div class="main">
                 <div class="mainbody scroll" id="scrollStyle">
-                    <h1>Medicatie</h1>
-                    <h2>Medicatie op recept</h2>
+                    <h1>TEST</h1>
+                    <h2>Test</h2>
                     Welk van de onderstaande medicatie die op recept verkrijgbaar is gebruikt u momenteel?
-                        <form class="medicatieRecept" onsubmit="return validateForm()">
+                        <form class="testForm" onsubmit="return validateTestForm()" action="test2.html">
                             <div class="row">
                                 <div class="column">
                                     <span id="titel">Medicijnen voor de longen</span><br>
@@ -70,26 +70,29 @@
                                     <input type="checkbox" class="medicijnenRecept" value="53"> Medicijnen ter voorkoming van malaria<br>
                                     <input type="checkbox" class="medicijnenRecept" value="54"> Medicijnen voor jicht/ reuma<br>                                    
                                     <input type="checkbox" class="medicijnenRecept" value="55"> Medicijnen tegen suikerziekte<br>
-                                    <input type="checkbox" class="medicijnenRecept" value="56"> Anders, namelijk: <input type="text" id="medicijnenReceptTekst">
+                                    <input type="checkbox" class="medicijnenRecept" value="56"> Anders, namelijk: <input type="text" id="medicijnenReceptTekst"><span id="medicijnenReceptTekstUitleg" class="uitleg"></span>
                                     <br>
                                     <br>
                                     Geboortejaar
                                     <br>
                                     <input type="text" id="gebJaar" class="textInput">
+                                    <span id ="gebJaarUitleg" class="uitleg"></span>
                                     <br>
                                     <br>
                                     Geslacht
                                     <br>
                                     <input type="radio" name="geslacht" value="Man"> Man
-                                    <input type="radio" name="geslacht" value="Vrouw"> Vrouw
+                                    <input type="radio" name="geslacht" value="Vrouw"> Vrouw<span id="geslachtUitleg" class="uitleg"></span>
                                 </div>
                             </div>
                             <br>
-                            <input type ="button" class="button" value="VOLGENDE" onclick="btnTest()"> 
+                            <input type ="submit" class="button" value="VOLGENDE" > 
                             <br>
                         </form>
                 </div>
+            <input type='hidden' id='duikerId' value=''>
             </div>
+        
         <div class="menu">
             <ul>
                 <li><a href="inleiding.html" class="boven" >Inleiding</a></li>
