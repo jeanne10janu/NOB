@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>NOB Enqu&ecirc;te</title>
+        <link rel="stylesheet" href="style.css">
+        
+        <!-- Voegt favicon toe, hierdoor komt het logo van NOB in de tab van de pagina -->
+        <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+        <link rel="manifest" href="favicon/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body>
+        <div class="header">
+            <img id="duikers" src="duikers.jpg" alt="Duikers" >
+            <div class="logo"><img id="logo" src="NOB-logo.png" alt="Logo" ></div>
+            <div class="wave"><img id="wave" src="white_wave.png" alt="Wave"></div>
+        </div>
+        <div class="main">
+            <div class="mainbody scroll" id="scrollStyle">
+                <h1>Test</h1>
+                <h2>Test2</h2>
+                <p>Wat voor een duikongeval(len) heeft u gehad? U kunt op de (?)s drukken voor meer informatie.</p>
+                <form class="test2Form" onsubmit="return validateTest2Form()" action="test.html">
+                    Welk van onderstaande duikongevallen heeft u eens ondervonden? 
+                    <br>Indien u geen duikongevallen heeft ondervonden, vink 'Geen' aan.<br>
+                    <input type="checkbox" class="duikOngevallen" value="00"> Geen <br>
+                    <input type="checkbox" class="duikOngevallen" value="01"> Longoverdrukletsels<br>
+                    <input type="checkbox" class="duikOngevallen" value="02"> Longoedeem<br>
+                    <input type="checkbox" class="duikOngevallen" value="03"> Onderkoeling<br>
+                    <input type="checkbox" class="duikOngevallen" value="04"> Decompressieziekte<br>
+                    <input type="checkbox" class="duikOngevallen" value="05"> Keel-, neus-, oorproblemen<br>
+                    <input type="checkbox" class="duikOngevallen" value="06"> Verwondingen door giftige of gevaarlijke zeedieren<br>
+                    <input type ="submit" class="button" value="VOLGENDE" >
+                    <br>
+                </form>
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="inleiding.html" class="boven" >Inleiding</a></li>
+                <li><a href="persoonsgegevens.html">Persoonsgegevens</a></li>
+                <li><a href="duikgeschiedenis.html">Duikgeschiedenis</a></li>
+                <li class="selected"><a href="duikongevallen.html">Duikgeschiedenis, ongevallen</a></li>
+                <li><a href="medischActueel.html">Medische gegevens, actueel</a></li>
+                <li><a href="medischDoorgemaakt.html">Medische gegevens, doorgemaakt</a></li>
+                <li><a href="medicatieRecept.html">Medicatie op recept</a></li>
+                <li><a href="medicatieOTC.html">Medicatie zonder recept</a></li>
+                <li><a href="overzicht.html" class="onder">Overzicht</a></li>
+            </ul>
+            <input type='hidden' id='duikerId' value=''>
+        </div>
+        
+        <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyClZScZfTNmN_1xqOAaOnP3enR9n4-NRoM",
+            authDomain: "nobform-8b325.firebaseapp.com",
+            databaseURL: "https://nobform-8b325.firebaseio.com",
+            projectId: "nobform-8b325",
+            storageBucket: "nobform-8b325.appspot.com",
+            messagingSenderId: "1091557751917"
+          };
+          firebase.initializeApp(config);
+        </script>
+        <script src="script.js"></script>
+            
+    </body>
+</html>
