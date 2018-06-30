@@ -4,6 +4,7 @@
     <head>
         <title>NOB Enqu&ecirc;te</title>
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" type="text/javascript"></script>
         
         <!-- Voegt favicon toe, hierdoor komt het logo van NOB in de tab van de pagina -->
         <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
@@ -20,6 +21,7 @@
             <div class="logo"><img id="logo" src="NOB-logo.png" alt="Logo" ></div>
             <div class="wave"><img id="wave" src="white_wave.png" alt="Wave"></div>
         </div>
+        <div id="doc">
         <div class="main">
             <div class="mainbody scroll" id="scrollStyle">
                 <h1>Welkom</h1>
@@ -31,7 +33,7 @@
                     uitgevoerd onder leiding van prof. dr. R. A. van Hulst in samenwerking met de NOB. <br><br>
 
                     Doel van het onderzoek is te komen tot een uitgebreide beschrijving van de groep van duikinstructeurs. 
-                    De gegevens leeftijdsopbouw, duikervaring, gebruik medicatie, doorgemaakte ziekten en duikaandoeningen. Willen we
+                    De gegevens leeftijdsopbouw, duikervaring, gebruik medicijnen, doorgemaakte ziekten en duikaandoeningen. Willen we
                     gebruiken om betere adviezen over duiken te kunnen geven in de toekomst<br>
                     Uiteraard worden deze informatie en de adviezen ter zijner tijd ook bekend gesteld aan de leden en 
                     instructeurs van de NOB, bv in de Onderwatersport. <br><br>
@@ -41,28 +43,43 @@
                         <li class="liInleiding">De opbouw van de vragenlijst en uw voortgang kunt u in de oranje balk hiernaast zien. Tijdens het invullen kunt u zonder probleem tussen de pagina's wisselen. </li>
                         <li class="liInleiding">Het is belangrijk dat u de vragenlijst naar waarheid invult. </li>
                         <li class="liInleiding">Uw gegevens zijn na het invullen niet terug te leiden naar u, <span class="alert">het is dus volledig anoniem.</span> </li>
-                        <li class="liInleiding">Zorg dat u tijdens het invullen een overzicht van uw medicatie bij de hand  heeft zodat u de gegevens hierover zo goed mogelijk in kunt vullen. </li>
+                        <li class="liInleiding">Zorg dat u tijdens het invullen een overzicht van uw medicijnen bij de hand  heeft zodat u de gegevens hierover zo goed mogelijk in kunt vullen. </li>
                         <li class="liInleiding">Het invullen van de vragenlijst duurt 15-20 minuten. Het is (vanwege de anonimiteit) niet mogelijk om op een ander moment het invullen te hervatten, u zult het dus in &eacute;&eacute;n keer moeten doen. </li>
                         <li class="liInleiding">Indien een vraag onduidelijk is kunt op de toets (?) klikken voor extra informatie.</li>
                     </ul>
                     <br>
                     Wij danken U voor uw bijdrage.
                 </p>
-                <input type ="button" class="button" value="START" onclick="window.location.href='persoonsgegevens.html'">
+                <input type ="button" class="button" value="START" onclick="openPagina(persoonsgegevensDoc)">
             </div>
         </div>
         <div class="menu">
             <ul>
-                <li><a href="inleiding.html" class="selected boven" >Inleiding</a></li>
-                <li><a href="persoonsgegevens.html">Persoonsgegevens</a></li>
-                <li><a href="duikgeschiedenis.html">Duikgeschiedenis</a></li>
-                <li><a href="duikongevallen.html">Duikgeschiedenis, ongevallen</a></li>
-                <li><a href="medischActueel.html">Medische gegevens, actueel</a></li>
-                <li><a href="medischDoorgemaakt.html">Medische gegevens, doorgemaakt</a></li>
-                <li><a href="medicatieRecept.html">Medicatie op recept</a></li>
-                <li><a href="medicatieOTC.html">Medicatie zonder recept</a></li>
-                <li><a href="overzicht.html" class="onder">Overzicht</a></li>
+                <li class="selected boven"><a onclick="openPagina(inleidingDoc)">Inleiding</a></li>
+                <li><a onclick="openPagina(persoonsgegevensDoc)">Persoonsgegevens</a></li>
+                <li><a onclick="openPagina(duikgeschiedenisDoc)">Duikgeschiedenis</a></li>
+                <li><a onclick="openPagina(duikongevallenDoc)">Duikgeschiedenis, ongevallen</a></li>
+                <li><a onclick="openPagina(medischActueelDoc)">Medische gegevens, actueel</a></li>
+                <li><a onclick="openPagina(medischDoorgemaaktDoc)">Medische gegevens, doorgemaakt</a></li>
+                <li><a onclick="openPagina(medicijnenReceptDoc)">Medicijnen op recept</a></li>
+                <li><a onclick="openPagina(medicijnenOTCDoc)">Medicijnen zonder recept</a></li>
+                <li><a onclick="openPagina(overzichtDoc)" class="onder">Overzicht</a></li>
             </ul>
-        </div>            
+        </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyClZScZfTNmN_1xqOAaOnP3enR9n4-NRoM",
+            authDomain: "nobform-8b325.firebaseapp.com",
+            databaseURL: "https://nobform-8b325.firebaseio.com",
+            projectId: "nobform-8b325",
+            storageBucket: "nobform-8b325.appspot.com",
+            messagingSenderId: "1091557751917"
+          };
+          firebase.initializeApp(config);
+        </script>
+        
     </body>
 </html>
