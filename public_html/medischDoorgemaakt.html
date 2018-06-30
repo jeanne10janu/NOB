@@ -26,7 +26,7 @@
             <h2>Doorgemaakte aandoeningen</h2>
             <p>Hieronder kunt u aangeven van welke aandoening(en) u langer dan 12 maanden geleden last heeft gehad. Wanneer uw aandoening niet in
                 onderstaande lijst kunt vinden, kunt u deze kwijt in de tekstbox onderaan de pagina. Wanneer u hier meerdere aandoeningen in kwijt wilt, kunt u ertussen een comma plaatsen.</p>
-            <form class="medischDoorgemaaktForm">
+            <form class="medischDoorgemaaktForm" onsubmit="return validateMedischDoorgemaaktForm()">
                 <div class="row">
                     <div class="column">
                         <span id="titel">Luchtwegen</span><br>
@@ -85,28 +85,27 @@
                         <input type="checkbox" class="medischDoorgemaakt" value="52"> Maagzweer<br>
                         <input type="checkbox" class="medischDoorgemaakt" value="53"> Ziekte van Crohn of colitis<br>
                         <input type="checkbox" class="medischDoorgemaakt" value="54"> Reuma<br>
-                        <input type="checkbox" class="medischDoorgemaakt" value="55"> Anders, namelijk: <input type="text" id="medischDoorgemaaktTekst">      
+                        <input type="checkbox" class="medischDoorgemaakt" value="55"> Anders, namelijk: <input type="text" id="medischDoorgemaaktTekst"><span id="medischDoorgemaaktUitleg" class="uitleg"></span>      
                     </div>
                 </div>
                 <br>
-                <input type ="button" class="button" value="VOLGENDE" onclick="window.location.href='medicatieRecept.html'"> 
+                <input type ="submit" class="button" value="VOLGENDE">
                 <br>
             </form>
             </div>
         </div>
         <div class="menu">
             <ul>
-                <li><a href="inleiding.html" class="boven" >Inleiding</a></li>
-                <li><a href="persoonsgegevens.html">Persoonsgegevens</a></li>
-                <li><a href="duikgeschiedenis.html">Duikgeschiedenis</a></li>
-                <li><a href="duikongevallen.html">Duikgeschiedenis, ongevallen</a></li>
-                <li><a href="medischActueel.html">Medische gegevens, actueel</a></li>
-                <li class="selected"><a href="medischDoorgemaakt.html">Medische gegevens, doorgemaakt</a></li>
-                <li><a href="medicatieRecept.html">Medicatie op recept</a></li>
-                <li><a href="medicatieOTC.html">Medicatie zonder recept</a></li>
-                <li><a href="overzicht.html" class="onder">Overzicht</a></li>
+                <li><a onclick="openPagina(inleidingDoc)"  class="boven" >Inleiding</a></li>
+                <li><a onclick="openPagina(persoonsgegevensDoc)">Persoonsgegevens</a></li>
+                <li><a onclick="openPagina(duikgeschiedenisDoc)">Duikgeschiedenis</a></li>
+                <li><a onclick="openPagina(duikongevallenDoc)">Duikgeschiedenis, ongevallen</a></li>
+                <li><a onclick="openPagina(medischActueelDoc)">Medische gegevens, actueel</a></li>
+                <li class="selected"><a onclick="openPagina(medischDoorgemaaktDoc)">Medische gegevens, doorgemaakt</a></li>
+                <li><a onclick="openPagina(medicatieReceptDoc)">Medicatie op recept</a></li>
+                <li><a onclick="openPagina(medicatieOTCDoc)">Medicatie zonder recept</a></li>
+                <li><a onclick="openPagina(overzichtDoc)" class="onder">Overzicht</a></li>
             </ul>
         </div>
-            
     </body>
 </html>
