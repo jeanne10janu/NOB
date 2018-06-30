@@ -25,14 +25,40 @@
             <div class="mainbody scroll" id="scrollStyle">
                 <h1>Overzicht</h1>
                 <h3>Persoonsgegevens</h3>
-                <table id="persoonsgegevens"></table>
+                <table id="persoonsgegevensTabel">
+                    <tr><td>Geslacht</td><td>geslacht</td></tr>
+                    <tr><td>Geboortejaar</td><td>gebjaar</td></tr>
+                    <tr><td>Gewicht</td><td>gewicht kg</td></tr>
+                    <tr><td>Lengte</td><td>lengte cm</td></tr>
+                    <tr><td>Aantal eenheden alcohol per week</td><td>alcohol</td></tr>
+                    <tr><td>Aantal sigaretten per week</td><td>sigaretten</td></tr>
+                </table>
                 <h3>Duikgeschiedenis</h3>
+                <table id="duikgeschiedenisTabel">
+                    <tr><td>Aantal jaren duikervaring</td><td>duikervaring</td></tr>
+                    <tr><td>Aantal jaren instructeursdiploma</td><td>diploma</td></tr>
+                    <tr><td>Aantal duiken afgelopen jaar</td><td>duikenVorigJaar</td></tr>
+                    <tr><td>Totaal aantal duiken</td><td>totaalDuiken</td></tr>
+                    <tr><td>Maximaal gedoken diepte</td><td>maxDiepte msw</td></tr>                    
+                </table>
                 <h3>Medische gegevens (actueel)</h3>
+                <table id="medischActueelTabel">
+                    <tr><td>Actuele aandoeningen:</td><td>aandoeningenActueel</td></tr>
+                </table>
                 <h3>Medische gegevens (doorgemaakt)</h3>
+                <table id="medischDoorgemaaktTabel">
+                    <tr><td>Doorgemaakte aandoeningen:</td><td>aandoeningenDoorgemaakt</td></tr>
+                </table>
                 <h3>Medicatie op recept</h3>
+                <table id="medicijnenReceptTabel">
+                    <tr><td>Medicijnen op recept: </td><td>medicijnenRecept</td></tr>
+                </table>
                 <h3>Medicatie zonder recept</h3>
+                <table id="medicijnenOTCTabel">
+                    <tr><td>Medicijnen zonder recept</td><td>mecijnenOTC</td></tr>
+                </table>
                 
-                <input type ="button" class="button" value="VERSTUREN" onclick="window.location.href='overzicht.html'"> 
+                <input type ="submit" class="button" value="VERSTUREN"> 
                 <br>
             </div>
         </div>
