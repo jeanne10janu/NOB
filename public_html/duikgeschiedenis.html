@@ -24,7 +24,7 @@
             <div class="mainbody scroll" id="scrollStyle">
                 <h1>Duikgeschiedenis</h1>
                 <p>Hieronder wordt uw duikervaring uitgevraagd.</p>
-                <form class="duikgeschiedenisForm">
+                <form class="duikgeschiedenisForm" onsubmit="return validateDuikgeschiedenisForm()">
                     <br>
                     Hoeveel jaar ervaring heeft u met duiken?
                     <br>
@@ -34,6 +34,7 @@
                     <input type="radio" name="duikervaring" value="3"> 10-15
                     <input type="radio" name="duikervaring" value="4"> 16-20
                     <input type="radio" name="duikervaring" value="5"> >20
+                    <span id="duikervaringUitleg" class="uitleg"></span>
                     <br>
                     <br>
                     Hoeveel jaar heeft u uw instructeurs diploma?
@@ -44,6 +45,7 @@
                     <input type="radio" name="diploma" value="3"> 10-15
                     <input type="radio" name="diploma" value="4"> 16-20
                     <input type="radio" name="diploma" value="5"> >20
+                    <span id="diplomaUitleg" class="uitleg"></span>
                     <br>
                     <br>
                     Hoe veel duiken heeft u in het afgelopen jaar gemaakt?
@@ -52,6 +54,7 @@
                     <input type="radio" name="duikenVorigJaar" value="1"> 1  -50 
                     <input type="radio" name="duikenVorigJaar" value="2"> 51 -100
                     <input type="radio" name="duikenVorigJaar" value="3"> >100
+                    <span id="duikenVorigJaarUitleg" class="uitleg"></span>
                     <br>
                     <br>
                     Hoe veel duiken heeft u in totaal gemaakt?
@@ -61,6 +64,7 @@
                     <input type="radio" name="totaalDuiken" value="2"> 501 -1000
                     <input type="radio" name="totaalDuiken" value="3"> 1001-2000
                     <input type="radio" name="totaalDuiken" value="4"> >2000
+                    <span id="totaalDuikenUitleg" class="uitleg"></span>
                     <br>
                     <br>
                     Wat is de maximale diepte die u ooit gedoken heeft? (in msw)
@@ -68,33 +72,34 @@
                     <input type="radio" name="maxDiepte" value="0"> 31 -50
                     <input type="radio" name="maxDiepte" value="1"> 51-100 
                     <input type="radio" name="maxDiepte" value="2"> >100
+                    <span id="maxDiepteUitleg" class="uitleg"></span>
                     <br>
                     <br>
                     Welke duikapparatuur gebruikt u?
                     <br>
                     <input type="radio" name="apparatuur" value="0"> Scuba
                     <input type="radio" name="apparatuur" value="1"> Rebreather 
-                    <input type="radio" name="apparatuur" value="2"> Scuba en rebreather 
+                    <input type="radio" name="apparatuur" value="2"> Scuba en rebreather
+                    <span id="apparatuurUitleg" class="uitleg"></span>
                     <br>
                     <br>
-                    <input type ="button" class="button" value="VOLGENDE" onclick="window.location.href='duikongevallen.html'"> 
+                    <input type ="submit" class="button" value="VOLGENDE"> 
                     <br>
                 </form>
             </div>
         </div>
         <div class="menu">
             <ul>
-                <li><a href="inleiding.html" class="boven" >Inleiding</a></li>
-                <li><a href="persoonsgegevens.html">Persoonsgegevens</a></li>
-                <li class="selected"><a href="duikgeschiedenis.html">Duikgeschiedenis</a></li>
-                <li><a href="duikongevallen.html">Duikgeschiedenis, ongevallen</a></li>
-                <li><a href="medischActueel.html">Medische gegevens, actueel</a></li>
-                <li><a href="medischDoorgemaakt.html">Medische gegevens, doorgemaakt</a></li>
-                <li><a href="medicatieRecept.html">Medicatie op recept</a></li>
-                <li><a href="medicatieOTC.html">Medicatie zonder recept</a></li>
-                <li><a href="overzicht.html" class="onder">Overzicht</a></li>
+                <li><a onclick="openPagina(inleidingDoc)"  class="boven" >Inleiding</a></li>
+                <li><a onclick="openPagina(persoonsgegevensDoc)">Persoonsgegevens</a></li>
+                <li class="selected"><a onclick="openPagina(duikgeschiedenisDoc)">Duikgeschiedenis</a></li>
+                <li><a onclick="openPagina(duikongevallenDoc)">Duikgeschiedenis, ongevallen</a></li>
+                <li><a onclick="openPagina(medischActueelDoc)">Medische gegevens, actueel</a></li>
+                <li><a onclick="openPagina(medischDoorgemaaktDoc)">Medische gegevens, doorgemaakt</a></li>
+                <li><a onclick="openPagina(medicatieReceptDoc)">Medicatie op recept</a></li>
+                <li><a onclick="openPagina(medicatieOTCDoc)">Medicatie zonder recept</a></li>
+                <li><a onclick="openPagina(overzichtDoc)" class="onder">Overzicht</a></li>
             </ul>
         </div>
-            
     </body>
 </html>
