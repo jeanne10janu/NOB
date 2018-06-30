@@ -19,6 +19,7 @@ ul {
     font-size: 15px;
 }
 
+
 .menu {
     position: absolute;  
     top: 0;
@@ -26,11 +27,11 @@ ul {
     margin-top: 6vw;
     background-color: transparent;
     width: 12vw;
-    height: 100%;
+    heigth: 30vw;
     border-radius: 30px;
     display: table;
     overflow: hidden;
-    text: 10px;
+    font-size: 10px;
 }
 
 .liInleiding{
@@ -55,6 +56,26 @@ li {
     height: 11.111%;  
 }
 
+ .menuButton {
+    background-color: orange;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    border-bottom: solid 1px rgb(153, 70, 39);
+    padding: 6px 16px;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+    width: 17vw;
+    height: 3vw;
+    text-align: center;
+}
+
+ .menuButton:hover {
+    background-color: rgb(153, 70, 39);
+    color: white;
+}
+
 li a {
     display: block;
     line-height: 3vw;
@@ -71,12 +92,13 @@ li a:hover {
     color: white;
 }
 
+
 p {
-    font-size: 14;
+    font-size: 14px;
 }
 
 h2{
-    font-size: 14;
+    font-size: 14px;
     margin-top: -20px;
 }
 
@@ -165,7 +187,7 @@ h2{
 }
 
 .button {
-    background-color: white; /* Green */
+    background-color: white;
     border-style: solid;
     border-width: 2px;
     border-radius: 16px;
@@ -178,6 +200,12 @@ h2{
     left: 80%;
     cursor: pointer; 
     
+}
+
+.uitleg{
+    font-size: 11px;
+    color: red;
+    font-style: italic;
 }
 
 .button:hover{
