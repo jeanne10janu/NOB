@@ -26,9 +26,9 @@
                     <h2>Medicatie op recept</h2>
                     <p>Hieronder kunt u aangeven welke medicijnen u op dit moment gebruikt of in de afgelopen 12 maanden heeft gebruikt. Het gaat hier om medicijnen op recept.
                         We raden u aan om uw medicatie bij de hand te hebben, zadat u eventueel in de bijsluiter kunt opzoeken onder welke categorie het valt. Wanneer de medicatie niet onder
-                        onderstaande categorieën valt kunt u deze kwijt in de tekstbox onderaan de pagina. Wanneer u hier meerdere verschillende medicatie in kwijt wilt, 
+                        onderstaande categorieÃ«n valt kunt u deze kwijt in de tekstbox onderaan de pagina. Wanneer u hier meerdere verschillende medicatie in kwijt wilt, 
                         kunt u ertussen een comma plaatsen.</p>
-                        <form class="medicatieRecept">
+                        <form class="medicatieReceptForm" onsubmit="return validateMedicatieReceptForm()">
                             <div class="row">
                                 <div class="column">
                                     <span id="titel">Medicijnen voor de longen</span><br>
@@ -72,28 +72,27 @@
                                     <input type="checkbox" class="medicijnenRecept" value="52"> Medicijnen voor epilepsie<br>
                                     <input type="checkbox" class="medicijnenRecept" value="53"> Medicijnen ter voorkoming van malaria<br>
                                     <input type="checkbox" class="medicijnenRecept" value="54"> Medicijnen voor jicht/ reuma<br>
-                                    <input type="checkbox" class="medicijnenRecept" value="55"> Anders, namelijk: <input type="text" id="medicijnenReceptTekst">
+                                    <input type="checkbox" class="medicijnenRecept" value="55"> Anders, namelijk: <input type="text" id="medicijnenReceptTekst"><span id="medicijnenReceptTekstUitleg" class="uitleg"></span>
                                 </div>
                             </div>
                             <br>
-                            <input type ="button" class="button" value="VOLGENDE" onclick="window.location.href='medicatieOTC.html'"> 
+                            <input type ="submit" class="button" value="VOLGENDE">
                             <br>
                         </form>
                 </div>
             </div>
         <div class="menu">
             <ul>
-                <li><a href="inleiding.html" class="boven" >Inleiding</a></li>
-                <li><a href="persoonsgegevens.html">Persoonsgegevens</a></li>
-                <li><a href="duikgeschiedenis.html">Duikgeschiedenis</a></li>
-                <li><a href="duikongevallen.html">Duikgeschiedenis, ongevallen</a></li>
-                <li><a href="medischActueel.html">Medische gegevens, actueel</a></li>
-                <li><a href="medischDoorgemaakt.html">Medische gegevens, doorgemaakt</a></li>
-                <li class="selected"><a href="medicatieRecept.html">Medicatie op recept</a></li>
-                <li><a href="medicatieOTC.html">Medicatie zonder recept</a></li>
-                <li><a href="overzicht.html" class="onder">Overzicht</a></li>
+                <li><a onclick="openPagina(inleidingDoc)"  class="boven" >Inleiding</a></li>
+                <li><a onclick="openPagina(persoonsgegevensDoc)">Persoonsgegevens</a></li>
+                <li><a onclick="openPagina(duikgeschiedenisDoc)">Duikgeschiedenis</a></li>
+                <li><a onclick="openPagina(duikongevallenDoc)">Duikgeschiedenis, ongevallen</a></li>
+                <li><a onclick="openPagina(medischActueelDoc)">Medische gegevens, actueel</a></li>
+                <li><a onclick="openPagina(medischDoorgemaaktDoc)">Medische gegevens, doorgemaakt</a></li>
+                <li class="selected"><a onclick="openPagina(medicatieReceptDoc)">Medicatie op recept</a></li>
+                <li><a onclick="openPagina(medicatieOTCDoc)">Medicatie zonder recept</a></li>
+                <li><a onclick="openPagina(overzichtDoc)" class="onder">Overzicht</a></li>
             </ul>
-        </div>
-            
+        </div>       
     </body>
 </html>
